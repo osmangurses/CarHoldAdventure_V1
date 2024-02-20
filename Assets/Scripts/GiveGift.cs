@@ -5,28 +5,17 @@ namespace _Game
 {
     public class GiveGift : MonoBehaviour
     {
-        public GameObject giftParent;
-        private static GiveGift _instance;
+        public GameObject giftParent,giftBoxHeader,giftBoxBody;
+        public static GiveGift Instance;
+        public GameObject[] gifts;
 
-        public static GiveGift Instance
+
+
+        private GameObject givenGift1, givenGift2;
+
+        public void Start()
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    // Find existing instance in the scene
-                    _instance = FindObjectOfType<GiveGift>();
-
-                    // If no instance exists, create a new one
-                    if (_instance == null)
-                    {
-                        GameObject singletonObject = new GameObject(typeof(GiveGift).Name);
-                        _instance = singletonObject.AddComponent<GiveGift>();
-                    }
-                }
-
-                return _instance;
-            }
+            Instance = this;
         }
 
         private void OnEnable()
@@ -41,11 +30,28 @@ namespace _Game
         {
             if (isAnswerTrue)
             {
-                giftParent.GetComponent<Animator>().enabled = false;
                 giftParent.SetActive(true);
                 giftParent.transform.localScale = Vector3.zero;
-                giftParent.transform.DOScale(Vector3.one*2.81f, 1f).SetEase(Ease.OutBounce).OnComplete(() =>
-                giftParent.GetComponent<Animator>().enabled = true);
+                givenGift1 = gifts[0];
+                givenGift2 = givenGift1;
+                while (givenGift2 == givenGift1)
+                {
+                    givenGift2 = gifts[(int)Random.Range(0, gifts.Length)];
+                }
+                givenGift1.SetActive(true);
+                givenGift2.SetActive(true);
+                giftParent.transform.DOScale(Vector3.one * 2.81f, 1f).SetEase(Ease.OutBounce).OnComplete(() =>
+                giftParent.transform.DOScaleY(1, 0.7f).OnComplete(() =>
+                giftParent.transform.DOScaleY(2.81f,0.2f).SetEase(Ease.OutBounce).OnComplete(()=>
+                giftBoxHeader.transform.DOLocalMoveY(500,0.5f).OnComplete(()=>
+                givenGift1.transform.DOLocalMove(new Vector3(100, 150, 0), 1).OnComplete(()=>
+                givenGift2.transform.DOLocalMove(new Vector3(-100, 150, 0), 1)
+                )
+                )
+                )
+                )
+                ) ;
+                
             }
         }
     }

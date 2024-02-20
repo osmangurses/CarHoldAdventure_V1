@@ -20,3 +20,4 @@ MonoBehaviour:
   correctAnswerNumber: 2
   answerTime_Second: 10
   LvObjects: {fileID: 9026415748972257696, guid: 2eb430b783bfd0144b3070fee4ca45d7, type: 3}
+  levelCompleteTimeForStar: 5

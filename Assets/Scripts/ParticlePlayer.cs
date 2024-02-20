@@ -11,6 +11,11 @@ public class ParticleData
 public class ParticlePlayer : MonoBehaviour
 {
     public List<ParticleData> particleList;
+    public static ParticlePlayer Instance;
+    private void Start()
+    {
+        Instance = this;
+    }
     public void PlayParticles(string particleName)
     {
         foreach (ParticleData particleData in particleList)

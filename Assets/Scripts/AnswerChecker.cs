@@ -8,6 +8,11 @@ using UnityEngine.UI;
 
 public class AnswerChecker : MonoBehaviour
 {
+    public static AnswerChecker Instance;
+
+    public float _questionPanelCloseTime=1f;
+
+
     [SerializeField] Button[] _answerButtons;
     [SerializeField] GameObject questionPanel;
 
@@ -19,6 +24,7 @@ public class AnswerChecker : MonoBehaviour
     private int answerIndex;
     private void Start()
     {
+        Instance = this;
         _levelDataHandler = GetComponent<LevelDataHandler>();
     }
     public void CheckAnswer(int clickedButtonIndex)
@@ -51,21 +57,21 @@ public class AnswerChecker : MonoBehaviour
         if (_isAnswerCorrect)
         {
             _answerButtons[answerIndex].GetComponent<Image>().color = Color.green;
-            GetComponent<ParticlePlayer>().PlayParticles("CorrectAnswer");
+            ParticlePlayer.Instance.PlayParticles("CorrectAnswer");
             LevelEventManager.OnQuestionAnswered(true);
         }
         else
         {
-
+            EndPanelManager.Instance.FailedChallange(2);
             _answerButtons[answerIndex].GetComponent<Image>().color = Color.red;
-            GetComponent<ParticlePlayer>().PlayParticles("IncorrectAnswer");
+            ParticlePlayer.Instance.PlayParticles("IncorrectAnswer");
             LevelEventManager.OnQuestionAnswered(false);
         }
-        Invoke(nameof(CloseQuestionPanel),0.5f);
+        Invoke(nameof(CloseQuestionPanel), _questionPanelCloseTime / 2);
     }
     void CloseQuestionPanel()
     {
-        questionPanel.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.Linear).OnComplete(()=>
+        questionPanel.transform.DOScale(Vector3.zero, _questionPanelCloseTime/2).SetEase(Ease.Linear).OnComplete(()=>
         questionPanel.SetActive(false));
     }
 }

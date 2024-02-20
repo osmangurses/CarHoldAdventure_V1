@@ -1,6 +1,7 @@
 using Dreamteck.Splines;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace _Game
@@ -8,11 +9,13 @@ namespace _Game
     public class CarSplineManager : MonoBehaviour
     {
         [SerializeField] LevelDataHandler levelDataHandler;
+        [SerializeField] TextMeshProUGUI timerOfLevelText;
 
         private TrailRenderer trailRenderer;
         private SplineFollower carSplineFollower;
         private int totalSpline, currentSpline;
-        private bool isSplineFinished;
+        private bool isSplineFinished,isFirstMove;
+        float timerOfLevel;
 
 
         private void Awake()
@@ -48,12 +51,22 @@ namespace _Game
                 else
                 {
                     isSplineFinished = true;
+                    if (timerOfLevel>LevelDataHandler.Instance.levelData.levelCompleteTimeForStar)
+                    {
+                        EndPanelManager.Instance.FailedChallange(0);
+                    }
                     LevelEventManager.OnLevelEnded(levelDataHandler.levelData, levelDataHandler.currentLevelIndex);
                 }
             }
             else if (carSplineFollower.result.percent > 0f)
             {
                 trailRenderer.emitting = true;
+                isFirstMove = true;
+            }
+            if (isFirstMove&&!isSplineFinished)
+            {
+                timerOfLevel += Time.deltaTime;
+                timerOfLevelText.text = timerOfLevel.ToString("F1");
             }
 
         }
