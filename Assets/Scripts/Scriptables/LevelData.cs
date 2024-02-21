@@ -13,5 +13,6 @@ public class LevelData : ScriptableObject
     public float answerTime_Second=5;
     public GameObject LvObjects=null;
     public float levelCompleteTimeForStar=60;
+    public int needStar;
     
 }

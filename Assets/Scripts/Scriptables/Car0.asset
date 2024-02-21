@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d2d031a8f05884682a945a4b54bf48, type: 3}
   m_Name: Car0
   m_EditorClassIdentifier: 
+  carName: SEDAN
   speed: 100
   carIndex: 0
+  price: 0
   stopDuration: 1
   speedUpDuration: 1
