@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b477d6f266beb943be7f22af8a985e6, type: 3}
-  m_Name: Lv0
+  m_Name: Lv3
   m_EditorClassIdentifier: 
-  question: Guess The Day
+  question: Guess The Job
   answers:
-  - Hallowen
-  - Velantine's Day
-  - Noel
-  correctAnswerNumber: 1
-  answerTime_Second: 10
-  LvObjects: {fileID: 1327526019699816521, guid: fb1850d909ecdd742bf0e4e8549680c4, type: 3}
-  levelCompleteTimeForStar: 5
-  needStar: 0
+  - Police
+  - Nurse
+  - Doctor
+  correctAnswerNumber: 2
+  answerTime_Second: 5
+  LvObjects: {fileID: 1167820969994384946, guid: 939491d91b7fe45478c5b8b003aaa97d, type: 3}
+  levelCompleteTimeForStar: 17
+  needStar: 7

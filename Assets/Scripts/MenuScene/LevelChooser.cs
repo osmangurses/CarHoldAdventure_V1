@@ -30,7 +30,8 @@ public class LevelChooser : MonoBehaviour
         {
             lockedLevelPanel.SetActive(false);
             unlockedLevelPanel.SetActive(true);
-            levelNameText.text = "LEVEL" + (currentLevelIndex + 1).ToString();
+            levelNameText.text = "LEVEL" + (currentLevelIndex+1).ToString();
+            PlayerPrefs.SetInt("SelectedLevelIndex",currentLevelIndex);
             Debug.Log(currentLevelIndex);
             for (int i = 0; i < stars.Length; i++)
             {
@@ -63,6 +64,8 @@ public class LevelChooser : MonoBehaviour
             lockedLevelPanel.SetActive(false);
             unlockedLevelPanel.SetActive(true);
             levelNameText.text="LEVEL"+(currentLevelIndex+1).ToString();
+            PlayerPrefs.SetInt("SelectedLevelIndex", currentLevelIndex);
+
             Debug.Log(currentLevelIndex);
             for (int i = 0; i < stars.Length; i++)
             {

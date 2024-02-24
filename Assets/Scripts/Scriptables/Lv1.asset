@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b477d6f266beb943be7f22af8a985e6, type: 3}
   m_Name: Lv1
   m_EditorClassIdentifier: 
-  question: Guess The ...
+  question: Guess The Season
   answers:
-  - Answer0
-  - Answer1
-  - Answer2
-  correctAnswerNumber: 0
+  - Summer
+  - Winter
+  - Spring
+  correctAnswerNumber: 1
   answerTime_Second: 5
-  LvObjects: {fileID: 0}
-  levelCompleteTimeForStar: 60
-  needStar: 9
+  LvObjects: {fileID: 6264354602026964965, guid: f8fa44fc768212044becf3df44f80341, type: 3}
+  levelCompleteTimeForStar: 15
+  needStar: 2

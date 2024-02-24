@@ -63,6 +63,7 @@ public class AnswerChecker : MonoBehaviour
             LevelEventManager.OnQuestionAnswered(true);
             coin.transform.DOScale(Vector3.one, _questionPanelCloseTime / 4).SetEase(Ease.OutBounce).OnComplete(() => coin.transform.DOLocalMoveY(1000, _questionPanelCloseTime / 4).SetEase(Ease.InBounce));
             coin.DOFade(0, _questionPanelCloseTime / 4).SetDelay(_questionPanelCloseTime/4);
+            PlayerPrefs.SetInt("TotalCoin", PlayerPrefs.GetInt("TotalCoin")+1);
         }
         else
         {

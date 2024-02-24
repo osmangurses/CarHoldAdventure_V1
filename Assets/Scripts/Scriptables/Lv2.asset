@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b477d6f266beb943be7f22af8a985e6, type: 3}
-  m_Name: Lv0
+  m_Name: Lv2
   m_EditorClassIdentifier: 
-  question: Guess The Day
+  question: Guess the fruit
   answers:
-  - Hallowen
-  - Velantine's Day
-  - Noel
-  correctAnswerNumber: 1
-  answerTime_Second: 10
-  LvObjects: {fileID: 1327526019699816521, guid: fb1850d909ecdd742bf0e4e8549680c4, type: 3}
-  levelCompleteTimeForStar: 5
-  needStar: 0
+  - Banana
+  - Apple
+  - Orange
+  correctAnswerNumber: 0
+  answerTime_Second: 4
+  LvObjects: {fileID: 7785301957078543370, guid: 0773cab3de1e39a42965176e99941ff2, type: 3}
+  levelCompleteTimeForStar: 15
+  needStar: 5
