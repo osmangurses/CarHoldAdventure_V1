@@ -7,23 +7,28 @@ using UnityEngine.UI;
 
 public class CarChooser : MonoBehaviour
 {
-    [SerializeField] Cars cars;
-    [SerializeField] Button selectButton;
-    [SerializeField] ParticleSystem confetti;
-    [SerializeField] TextMeshProUGUI buttonText, totalCoinText, carName;
+    public static CarChooser Instance;
 
+    [SerializeField] Cars cars;
+    [SerializeField] ParticleSystem confetti;
+    [SerializeField] TextMeshProUGUI totalCoinText;
+    [SerializeField] GameObject carPricePanel,buyCarPanel;
+    [SerializeField] TextMeshProUGUI priceText;
+    [SerializeField] GameObject carPodium;
     int currentCarIndex;
 
     private void Start()
     {
+        Instance = this;
         totalCoinText.text = PlayerPrefs.GetInt("TotalCoin").ToString();
         currentCarIndex = PlayerPrefs.GetInt("SelectedCarIndex");
+        SelectCar();
         ChangeCar(0);
     }
-
+ 
     public void ChangeCar(int changeIndex)
     {
-        GameObject carPodium = MenuManager.Instance.carPodium;
+        Debug.Log("Tried");
         if ((currentCarIndex + changeIndex) < carPodium.transform.childCount && (currentCarIndex + changeIndex) > -1)
         {
             currentCarIndex += changeIndex;
@@ -48,46 +53,47 @@ public class CarChooser : MonoBehaviour
                     carPodium.transform.GetChild(i).transform.DOLocalMove(Vector3.one * -500, 0.5f);
                 }
             }
-        }
-        carName.text = cars.CarTypes[currentCarIndex].carName;
-        SelectButtonModifier();
-    }
-    void SelectButtonModifier()
-    {
-        if (currentCarIndex == PlayerPrefs.GetInt("SelectedCarIndex"))
-        {
-            selectButton.image.color = Color.green;
-            buttonText.text = "SELECTED";
-        }
-        else if (PlayerPrefs.GetInt("isCar" + currentCarIndex.ToString() + "Open") == 1)
-        {
-            selectButton.image.color = Color.white;
-            buttonText.text = "SELECT";
-        }
-        else
-        {
-            selectButton.image.color = Color.red;
-            buttonText.text = cars.CarTypes[currentCarIndex].price.ToString();
+            SelectCar();
         }
     }
-    public void SelectOrBuy()
+
+    public void SelectCar()
     {
         if (PlayerPrefs.GetInt("isCar" + currentCarIndex.ToString() + "Open") == 1)
         {
             PlayerPrefs.SetInt("SelectedCarIndex", currentCarIndex);
+            carPricePanel.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBounce);
         }
         else
         {
-            if (PlayerPrefs.GetInt("TotalCoin") >= cars.CarTypes[currentCarIndex].price)
+            priceText.text = cars.CarTypes[currentCarIndex].price.ToString();
+            carPricePanel.transform.DOScale(Vector3.one,0.5f).SetEase(Ease.OutBounce);
+        }
+
+    }
+    public void OpenCloseBuyCarPanel(bool isOpen)
+    {
+        if (isOpen)
+        {
+            buyCarPanel.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBounce);
+        }
+        else
+        {
+            buyCarPanel.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InBounce);
+        }
+        SelectCar();
+    }
+    public void BuyCar()
+    {
+               
+            if (PlayerPrefs.GetInt("TotalCoin") >= cars.CarTypes[currentCarIndex].price && PlayerPrefs.GetInt("isCar" + currentCarIndex.ToString() + "Open") != 1)
             {
                 PlayerPrefs.SetInt("TotalCoin", PlayerPrefs.GetInt("TotalCoin") - cars.CarTypes[currentCarIndex].price);
                 PlayerPrefs.SetInt("isCar" + currentCarIndex.ToString() + "Open", 1);
                 totalCoinText.text = PlayerPrefs.GetInt("TotalCoin").ToString();
                 confetti.Play();
-
             }
-        }
-        SelectButtonModifier();
+        
     }
     public void GoBack()
     {

@@ -18,9 +18,7 @@ namespace _Game
         float timerOfLevel;
 
 
-        private void Awake()
-        {
-        }
+
         private void Start()
         {
             carSplineFollower = GetComponent<SplineFollower>();

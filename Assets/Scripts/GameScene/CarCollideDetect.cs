@@ -11,6 +11,7 @@ public class CarCollideDetect : MonoBehaviour
     {
         if (other.tag=="Obstacle")
         {
+            LevelEventManager.OnLevelFailed(LevelDataHandler.Instance.currentLevelIndex);
             levelFailedPanel.transform.DOScale(Vector3.one,0.7f).SetEase(Ease.OutBounce);
             GetComponent<CarMove>().isCrashed = true;
         }
