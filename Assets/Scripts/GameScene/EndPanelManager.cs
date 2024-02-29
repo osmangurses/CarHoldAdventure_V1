@@ -18,26 +18,23 @@ namespace _Game
         [SerializeField] Image[] _stars;
         [SerializeField] Image[] challangeResults;
         [SerializeField] Image _referanceStar;
-        [SerializeField] Sprite challangeFailedIcon;
+        [SerializeField] Sprite challangeCompletedIcon;
         [SerializeField] float _starAnimationTime;
         [SerializeField] GameObject _endPanel;
         [SerializeField] TransitionSettings transition;
 
-        int _starCount;
-        private void Awake()
-        {
-            _starCount=_stars.Length;
-        }
+        int _starCount=0;
+
         private void Start()
         {
             Instance = this;
         }
 
-        public void FailedChallange(int challangeIndex)
+        public void CompletedChallange(int challangeIndex)
         {
-            challangeResults[challangeIndex].sprite = challangeFailedIcon;
-            challangeResults[challangeIndex].color=Color.red;
-            _starCount--;
+            challangeResults[challangeIndex].sprite = challangeCompletedIcon;
+            challangeResults[challangeIndex].color=Color.green;
+            _starCount++;
         }
         void AnimateStar(int index, float delay)
         {

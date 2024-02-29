@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         Instance=this;
+        Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.numerator;
     }
     void PlayerPrefsCreator()
     {

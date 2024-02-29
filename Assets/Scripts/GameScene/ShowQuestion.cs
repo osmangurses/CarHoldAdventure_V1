@@ -49,7 +49,15 @@ namespace _Game
         }
         private void Update()
         {
-            if (!isAnswered && isQuestionReady){questionTimer.value -= Time.deltaTime/levelData.answerTime_Second;}
+            if (!isAnswered && isQuestionReady)
+            {
+                questionTimer.value -= Time.deltaTime/levelData.answerTime_Second;
+                if (questionTimer.value<=0)
+                {
+                    AnswerChecker.Instance.TimeOver();
+                    isAnswered=true;
+                }
+            }
         }
     }
     

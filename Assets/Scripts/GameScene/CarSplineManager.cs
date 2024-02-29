@@ -51,9 +51,9 @@ namespace _Game
                 else
                 {
                     isSplineFinished = true;
-                    if (timerOfLevel>LevelDataHandler.Instance.levelData.levelCompleteTimeForStar)
+                    if (timerOfLevel<=LevelDataHandler.Instance.levelData.levelCompleteTimeForStar)
                     {
-                        EndPanelManager.Instance.FailedChallange(0);
+                        EndPanelManager.Instance.CompletedChallange(0);
                     }
                     LevelEventManager.OnLevelEnded(levelDataHandler.levelData, levelDataHandler.currentLevelIndex);
                 }

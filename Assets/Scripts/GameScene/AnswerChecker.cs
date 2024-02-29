@@ -29,6 +29,18 @@ public class AnswerChecker : MonoBehaviour
         Instance = this;
         _levelDataHandler = GetComponent<LevelDataHandler>();
     }
+    public void TimeOver()
+    {
+        foreach (var button in _answerButtons)
+        {
+            button.interactable = false;
+        }
+        _answerButtons[_levelDataHandler.levelData.correctAnswerNumber].GetComponent<Image>().color = Color.green;
+        ParticlePlayer.Instance.PlayParticles("IncorrectAnswer");
+        LevelEventManager.OnQuestionAnswered(false);
+        Invoke(nameof(CloseQuestionPanel), _questionPanelCloseTime / 2);
+
+    }
     public void CheckAnswer(int clickedButtonIndex)
     {
 
@@ -58,6 +70,7 @@ public class AnswerChecker : MonoBehaviour
     {
         if (_isAnswerCorrect)
         {
+            EndPanelManager.Instance.CompletedChallange(2);
             _answerButtons[answerIndex].GetComponent<Image>().color = Color.green;
             ParticlePlayer.Instance.PlayParticles("CorrectAnswer");
             LevelEventManager.OnQuestionAnswered(true);
@@ -67,7 +80,6 @@ public class AnswerChecker : MonoBehaviour
         }
         else
         {
-            EndPanelManager.Instance.FailedChallange(2);
             _answerButtons[answerIndex].GetComponent<Image>().color = Color.red;
             _answerButtons[_levelDataHandler.levelData.correctAnswerNumber].GetComponent<Image>().color = Color.green;
             ParticlePlayer.Instance.PlayParticles("IncorrectAnswer");

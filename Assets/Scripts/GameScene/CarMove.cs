@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class CarMove : MonoBehaviour
 {
+    public bool isCrashed;
+
     [SerializeField] SplineFollower carSplineFollower;
     [SerializeField] Cars cars;
     [SerializeField] Transform cases;
@@ -34,13 +36,22 @@ public class CarMove : MonoBehaviour
     }
     private void Update()
     {
-        if (_isMoving)
+        if (!isCrashed)
+
         {
-            UpSpeed();
+            if (_isMoving)
+            {
+                UpSpeed();
+            }
+            else
+            {
+                DownSpeed();
+            }
+
         }
         else
         {
-            DownSpeed();
+            carSplineFollower.followSpeed = 0;
         }
     }
     public void SetIsMoving(bool isMoving)
