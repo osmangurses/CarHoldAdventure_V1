@@ -10,7 +10,7 @@ public class CarChooser : MonoBehaviour
     [SerializeField] Cars cars;
     [SerializeField] Button selectButton;
     [SerializeField] ParticleSystem confetti;
-    [SerializeField] TextMeshProUGUI buttonText, totalCoinText;
+    [SerializeField] TextMeshProUGUI buttonText, totalCoinText, carName;
 
     int currentCarIndex;
 
@@ -49,6 +49,7 @@ public class CarChooser : MonoBehaviour
                 }
             }
         }
+        carName.text = cars.CarTypes[currentCarIndex].carName;
         SelectButtonModifier();
     }
     void SelectButtonModifier()
