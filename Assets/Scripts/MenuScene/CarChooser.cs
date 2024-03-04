@@ -95,10 +95,5 @@ public class CarChooser : MonoBehaviour
             }
         
     }
-    public void GoBack()
-    {
-        MenuManager.Instance.mainPanel.SetActive(true);
-        MenuManager.Instance.selectCarPanel.SetActive(false);
-        MenuManager.Instance.carPodium.SetActive(false);
-    }
+
 }

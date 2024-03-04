@@ -13,7 +13,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] TransitionSettings transition;
     public Cars cars;
     public Levels levels;
-    public GameObject mainPanel, selectCarPanel, carPodium;
     private void Awake()
     {
         PlayerPrefsCreator();
@@ -61,12 +60,5 @@ public class MenuManager : MonoBehaviour
     public void LoadGame()
     {
         TransitionManager.Instance().Transition("GameScene",transition,0.5f);
-    }
-    public void GoToCarSelect()
-    {
-
-        mainPanel.SetActive(false);
-        selectCarPanel.SetActive(true);
-        carPodium.SetActive(true);
     }
 }

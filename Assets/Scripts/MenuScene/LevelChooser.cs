@@ -10,6 +10,7 @@ public class LevelChooser : MonoBehaviour
     [SerializeField] Image[] stars;
     [SerializeField] GameObject unlockedLevelPanel, lockedLevelPanel;
 
+    int currentLevelIndex;
     Levels levels;
     private void Start()
     {
@@ -48,11 +49,11 @@ public class LevelChooser : MonoBehaviour
     }
     public void ChangeLevelButton(int addValueToLevelIndex)
     {
-        PlayerPrefs.SetInt("SelectedLevelIndex", PlayerPrefs.GetInt("SelectedLevelIndex") + addValueToLevelIndex);
-        int currentLevelIndex = PlayerPrefs.GetInt("SelectedLevelIndex");
-        if (currentLevelIndex < 0){currentLevelIndex = levels.allLevels.Length - 1;}
-        else if (currentLevelIndex>levels.allLevels.Length-1){currentLevelIndex = 0;}
-        PlayerPrefs.SetInt("SelectedLevelIndex", currentLevelIndex);
+        //PlayerPrefs.SetInt("SelectedLevelIndex", PlayerPrefs.GetInt("SelectedLevelIndex") + addValueToLevelIndex);
+        currentLevelIndex = currentLevelIndex+addValueToLevelIndex;
+        if (currentLevelIndex < 0){ currentLevelIndex = 0; }
+        else if (currentLevelIndex>levels.allLevels.Length-1){ currentLevelIndex=levels.allLevels.Length - 1; }
+        //PlayerPrefs.SetInt("SelectedLevelIndex", currentLevelIndex);
         if (levels.allLevels[currentLevelIndex].needStar>PlayerPrefs.GetInt("TotalStar"))
         {
             unlockedLevelPanel.SetActive(false);
@@ -66,7 +67,6 @@ public class LevelChooser : MonoBehaviour
             levelNameText.text="LEVEL"+(currentLevelIndex+1).ToString();
             PlayerPrefs.SetInt("SelectedLevelIndex", currentLevelIndex);
 
-            Debug.Log(currentLevelIndex);
             for (int i = 0; i < stars.Length; i++)
             {
                 if (PlayerPrefs.GetInt("Lv"+currentLevelIndex+"Stars")>i)
@@ -80,6 +80,7 @@ public class LevelChooser : MonoBehaviour
 
             }
         }
+        Debug.Log(currentLevelIndex);
 
     }
     

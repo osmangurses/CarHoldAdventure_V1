@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b477d6f266beb943be7f22af8a985e6, type: 3}
   m_Name: Lv3
   m_EditorClassIdentifier: 
-  question: Guess The Job
+  question: GUESS THE JOB
   answers:
-  - Police
-  - Nurse
-  - Doctor
+  - POLICE
+  - NURSE
+  - DOCTOR
   correctAnswerNumber: 2
   answerTime_Second: 5
   LvObjects: {fileID: 1167820969994384946, guid: 939491d91b7fe45478c5b8b003aaa97d, type: 3}
