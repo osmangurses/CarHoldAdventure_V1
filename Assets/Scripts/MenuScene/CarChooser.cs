@@ -48,9 +48,13 @@ public class CarChooser : MonoBehaviour
                 {
                     carPodium.transform.GetChild(i).transform.DOLocalMove((Vector3.right * -8) + (Vector3.forward * -4), 0.5f);
                 }
+                else if(i>currentCarIndex)
+                {
+                    carPodium.transform.GetChild(i).transform.DOLocalMove((Vector3.right * -8) + (Vector3.forward * 15), 0.5f);
+                }
                 else
                 {
-                    carPodium.transform.GetChild(i).transform.DOLocalMove(Vector3.one * -500, 0.5f);
+                    carPodium.transform.GetChild(i).transform.DOLocalMove((Vector3.right * -8) + (Vector3.forward * -15), 0.5f);
                 }
             }
             SelectCar();
