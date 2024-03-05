@@ -20,19 +20,20 @@ public class LevelChooser : MonoBehaviour
     }
     public void CheckLevel()
     {
-        int currentLevelIndex = PlayerPrefs.GetInt("SelectedLevelIndex");
+        currentLevelIndex = PlayerPrefs.GetInt("SelectedLevelIndex");
         if (levels.allLevels[currentLevelIndex].needStar > PlayerPrefs.GetInt("TotalStar"))
         {
             unlockedLevelPanel.SetActive(false);
             lockedLevelPanel.SetActive(true);
             levelNeedStarText.text = levels.allLevels[currentLevelIndex].needStar.ToString();
+            levelNeedStarText.text = PlayerPrefs.GetInt("TotalStar").ToString() + "/" + levels.allLevels[currentLevelIndex].needStar.ToString();
         }
         else
         {
             lockedLevelPanel.SetActive(false);
             unlockedLevelPanel.SetActive(true);
-            levelNameText.text = "LEVEL " + (currentLevelIndex+1).ToString();
             PlayerPrefs.SetInt("SelectedLevelIndex",currentLevelIndex);
+            levelNameText.text = "LEVEL " + (currentLevelIndex + 1).ToString();
             Debug.Log(currentLevelIndex);
             for (int i = 0; i < stars.Length; i++)
             {
@@ -46,6 +47,8 @@ public class LevelChooser : MonoBehaviour
                     }
             }
         }
+
+        levelNameText.text = "LEVEL " + (currentLevelIndex + 1).ToString();
     }
     public void ChangeLevelButton(int addValueToLevelIndex)
     {

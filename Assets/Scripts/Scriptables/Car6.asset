@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Car6
   m_EditorClassIdentifier: 
   carName: RACE FUTURE
-  speed: 250
+  speed: 200
   carIndex: 6
   price: 50
   stopDuration: 0.2
