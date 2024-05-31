@@ -9,10 +9,10 @@ public class CarMove : MonoBehaviour
 {
     public bool isCrashed;
 
-    [SerializeField] SplineFollower carSplineFollower;
+    public SplineFollower carSplineFollower;
     [SerializeField] Cars cars;
     [SerializeField] Transform cases;
-    CarType selectedCar;
+    [HideInInspector] public CarType selectedCar;
     bool _isMoving;
 
     private void Start()

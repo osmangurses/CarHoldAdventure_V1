@@ -1,5 +1,6 @@
 using _Game;
 using EasyTransition;
+using GameAnalyticsSDK;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,11 +16,12 @@ public class MenuManager : MonoBehaviour
     public Levels levels;
     private void Awake()
     {
+        Instance = this;
         PlayerPrefsCreator();
     }
     private void Start()
     {
-        Instance=this;
+        GameAnalytics.Initialize();
         Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.numerator;
     }
     void PlayerPrefsCreator()
@@ -59,6 +61,7 @@ public class MenuManager : MonoBehaviour
     }
     public void LoadGame()
     {
-        TransitionManager.Instance().Transition("GameScene",transition,0.5f);
+        TransitionManager.Instance().Transition("GameScene",transition,0f);
+        AudioPlayer.instance.PlayAudio(AudioName.SceneTransition);
     }
 }

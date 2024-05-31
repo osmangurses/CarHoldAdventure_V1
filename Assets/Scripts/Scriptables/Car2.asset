@@ -15,6 +15,6 @@ MonoBehaviour:
   carName: POLICE
   speed: 110
   carIndex: 2
-  price: 12
-  stopDuration: 1
-  speedUpDuration: 1
+  price: 10
+  stopDuration: 1.2
+  speedUpDuration: 1.2

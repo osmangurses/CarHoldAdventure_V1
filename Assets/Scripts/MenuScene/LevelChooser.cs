@@ -52,11 +52,9 @@ public class LevelChooser : MonoBehaviour
     }
     public void ChangeLevelButton(int addValueToLevelIndex)
     {
-        //PlayerPrefs.SetInt("SelectedLevelIndex", PlayerPrefs.GetInt("SelectedLevelIndex") + addValueToLevelIndex);
         currentLevelIndex = currentLevelIndex+addValueToLevelIndex;
         if (currentLevelIndex < 0){ currentLevelIndex = 0; }
         else if (currentLevelIndex>levels.allLevels.Length-1){ currentLevelIndex=levels.allLevels.Length - 1; }
-        //PlayerPrefs.SetInt("SelectedLevelIndex", currentLevelIndex);
         if (levels.allLevels[currentLevelIndex].needStar>PlayerPrefs.GetInt("TotalStar"))
         {
             unlockedLevelPanel.SetActive(false);

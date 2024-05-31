@@ -18,7 +18,7 @@ MonoBehaviour:
   - VALENTINE'S DAY
   - NEW YEAR
   correctAnswerNumber: 1
-  answerTime_Second: 10
+  answerTime_Second: 15
   LvObjects: {fileID: 1327526019699816521, guid: fb1850d909ecdd742bf0e4e8549680c4, type: 3}
-  levelCompleteTimeForStar: 5
+  levelCompleteTimeForStar: 15
   needStar: 0

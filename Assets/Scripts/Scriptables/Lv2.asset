@@ -18,7 +18,7 @@ MonoBehaviour:
   - APPLE
   - ORANGE
   correctAnswerNumber: 0
-  answerTime_Second: 4
+  answerTime_Second: 5
   LvObjects: {fileID: 7785301957078543370, guid: 0773cab3de1e39a42965176e99941ff2, type: 3}
-  levelCompleteTimeForStar: 15
+  levelCompleteTimeForStar: 20
   needStar: 5

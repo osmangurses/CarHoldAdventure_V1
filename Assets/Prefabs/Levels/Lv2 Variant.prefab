@@ -2035,6 +2035,10 @@ PrefabInstance:
       value: 586
       objectReference: {fileID: 0}
     - target: {fileID: 2182348253874925822, guid: fb1850d909ecdd742bf0e4e8549680c4, type: 3}
+      propertyPath: _subscribers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182348253874925822, guid: fb1850d909ecdd742bf0e4e8549680c4, type: 3}
       propertyPath: _spline.points.Array.size
       value: 66
       objectReference: {fileID: 0}

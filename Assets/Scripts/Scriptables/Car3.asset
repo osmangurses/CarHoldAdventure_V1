@@ -16,5 +16,5 @@ MonoBehaviour:
   speed: 120
   carIndex: 3
   price: 15
-  stopDuration: 0.5
-  speedUpDuration: 0.9
+  stopDuration: 0.7
+  speedUpDuration: 1

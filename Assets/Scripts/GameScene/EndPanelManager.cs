@@ -18,6 +18,7 @@ namespace _Game
         [SerializeField] Image[] _stars;
         [SerializeField] Image[] challangeResults;
         [SerializeField] Image _referanceStar;
+        [SerializeField] Button _nextLvButton;
         [SerializeField] Sprite challangeCompletedIcon;
         [SerializeField] float _starAnimationTime;
         [SerializeField] GameObject _endPanel;
@@ -39,7 +40,8 @@ namespace _Game
         void AnimateStar(int index, float delay)
         {
 
-            _stars[index].transform.DOScale(_referanceStar.transform.localScale * 10f, 0).SetDelay(delay);
+            _stars[index].transform.DOScale(_referanceStar.transform.localScale * 10f, 0).SetDelay(delay).OnComplete(() =>
+            AudioPlayer.instance.PlayAudio(AudioName.StarCollect));
             _stars[index].DOFade(0, 0);
             _stars[index].DOFade(1, _starAnimationTime).SetDelay(delay);
             _stars[index].transform.DOScale(_referanceStar.transform.localScale, _starAnimationTime).SetDelay(delay);
@@ -64,21 +66,26 @@ namespace _Game
 
         void AnimateAllStars()
         {
-            
                 for (int i = 0; i < _starCount; i++)
                 {
                     AnimateStar(i, i * _starAnimationTime);
                 }
             LevelEventManager.OnLevelCompleted(LevelDataHandler.Instance.currentLevelIndex,_starCount);
+            if (LevelDataHandler.Instance.levels.allLevels[LevelDataHandler.Instance.currentLevelIndex + 1].needStar > PlayerPrefs.GetInt("TotalStar"))
+            {
+                _nextLvButton.interactable = false;
+            }
         }
         public void LoadGame(int addIndexToLevel)
         {
+            AudioPlayer.instance.PlayAudio(AudioName.SceneTransition);
             PlayerPrefs.SetInt("SelectedLevelIndex",PlayerPrefs.GetInt("SelectedLevelIndex")+addIndexToLevel);
-            TransitionManager.Instance().Transition("GameScene", transition, 0.5f);
+            TransitionManager.Instance().Transition("GameScene", transition, 0f);
         }
         public void GoHome()
         {
-            SceneManager.LoadScene("MenuScene");
+            AudioPlayer.instance.PlayAudio(AudioName.SceneTransition);
+            TransitionManager.Instance().Transition("MenuScene", transition, 0f);
         }
     }
 }

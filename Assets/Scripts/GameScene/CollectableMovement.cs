@@ -12,6 +12,7 @@ public class CollectableMovement : MonoBehaviour
     private void Start()
     {
         Move();
+        transform.position = PathPoints[pointIndex].transform.position;
     }
     void Move()
     {

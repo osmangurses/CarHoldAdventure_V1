@@ -11310,7 +11310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1864869926545018680, guid: 479c10f45dc785546bd10c2230d2d175, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4198292261566128577, guid: 479c10f45dc785546bd10c2230d2d175, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -11416,6 +11416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PathRenderer
       objectReference: {fileID: 0}
+    - target: {fileID: 1286365736333585260, guid: b924dce73e13fbd46b06d493f10d4ad7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a44d3cec97d015340944a26efb1f7971, type: 2}
     - target: {fileID: 3908809585518272422, guid: b924dce73e13fbd46b06d493f10d4ad7, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -11783,7 +11787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1864869926545018680, guid: 479c10f45dc785546bd10c2230d2d175, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4198292261566128577, guid: 479c10f45dc785546bd10c2230d2d175, type: 3}
       propertyPath: m_ConstrainProportionsScale

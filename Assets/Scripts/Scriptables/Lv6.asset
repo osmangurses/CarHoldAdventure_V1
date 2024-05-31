@@ -20,5 +20,5 @@ MonoBehaviour:
   correctAnswerNumber: 0
   answerTime_Second: 8
   LvObjects: {fileID: 4522092478356722941, guid: 702cce85a1bd5b2439f924700be8c9d8, type: 3}
-  levelCompleteTimeForStar: 12
-  needStar: 10
+  levelCompleteTimeForStar: 17
+  needStar: 15

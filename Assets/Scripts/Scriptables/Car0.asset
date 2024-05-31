@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Car0
   m_EditorClassIdentifier: 
   carName: SEDAN
-  speed: 100
+  speed: 70
   carIndex: 0
   price: 0
-  stopDuration: 1
-  speedUpDuration: 2
+  stopDuration: 1.5
+  speedUpDuration: 3

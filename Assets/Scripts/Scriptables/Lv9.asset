@@ -21,4 +21,4 @@ MonoBehaviour:
   answerTime_Second: 8
   LvObjects: {fileID: 3271896906921693380, guid: 73a4025cc8f72564b9284f82a6b69b1a, type: 3}
   levelCompleteTimeForStar: 25
-  needStar: 17
+  needStar: 22

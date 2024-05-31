@@ -15,10 +15,10 @@ MonoBehaviour:
   question: GUESS THE JOB
   answers:
   - POLICE
-  - NURSE
+  - TEACHER
   - DOCTOR
   correctAnswerNumber: 2
   answerTime_Second: 5
   LvObjects: {fileID: 1167820969994384946, guid: 939491d91b7fe45478c5b8b003aaa97d, type: 3}
-  levelCompleteTimeForStar: 17
+  levelCompleteTimeForStar: 25
   needStar: 7

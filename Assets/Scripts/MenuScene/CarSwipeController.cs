@@ -20,7 +20,6 @@ public class CarSwipeController : MonoBehaviour
         }
         else if(startTouchPosition.x - 10 > currentTouchPosition.x)
         {
-
             CarChooser.Instance.ChangeCar(1);
         }
     }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b477d6f266beb943be7f22af8a985e6, type: 3}
+  m_Name: Lv14
+  m_EditorClassIdentifier: 
+  question: GUESS THE ANIMAL
+  answers:
+  - BUTTER
+  - BUTTERFLY
+  - FLY
+  correctAnswerNumber: 1
+  answerTime_Second: 10
+  LvObjects: {fileID: 3466736438506518229, guid: 1a769d9e6d1da134783089bbd6efae47, type: 3}
+  levelCompleteTimeForStar: 25
+  needStar: 35
